@@ -1,0 +1,88 @@
+body {
+  font-family: 'Smythe', cursive;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.header {
+  height: 167px;
+  background: url('./img/herobg.png') no-repeat center;
+  background-size: contain;
+}
+
+.header-title {
+  margin: 0;
+  padding: 46px 0 19px 46px;
+  color: #ffffff;
+  font-size: 39px;
+  line-height: 24px;
+}
+
+.header-description {
+  margin: 0;
+  padding-left: 46px;
+  color: #ffffff;
+  font-size: 22.4px;
+  line-height: 13.8px;
+}
+
+/* MAIN */
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  align-items: center;
+  max-width: 504px;
+  /* justify-content: space-between; */
+  border-bottom: 2px solid #d2d2d2;
+}
+
+.item-text {
+  margin: 45px 0 51px 31px;
+}
+
+.item-title,
+.price {
+  color: #000000;
+}
+
+.item-title {
+  margin: 0 0 8px 0;
+  line-height: 17px;
+  font-size: 28px;
+}
+
+.item-description {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b8b8b;
+}
+
+.price {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.add-button {
+  margin: 0 0 0 auto;
+  padding: 11px 16px 13px 16px;
+  color: #3c3c3c;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: 32px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 25px;
+  background-color: transparent;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  cursor: pointer;
+}
