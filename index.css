@@ -1,3 +1,13 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 body {
   font-family: 'Smythe', cursive;
 }
@@ -86,6 +96,17 @@ body {
   cursor: pointer;
 }
 
+.add-button:hover {
+  color: white;
+  background-color: limegreen;
+  border: 1px solid limegreen;
+}
+
+.add-button:active {
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+}
+
 /* ORDER SUMMARY */
 
 .order-container {
@@ -142,6 +163,17 @@ body {
   cursor: pointer;
 }
 
+.remove-btn {
+  color: #bbbbbb;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: red;
+}
+
 /* PAYMENT MODAL WINDOW */
 
 .payment-modal-window {
@@ -160,7 +192,25 @@ body {
   background-color: #ffffff;
   border: 1px solid black;
   border-radius: 3.88991px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.45);
+}
+
+.modal-header {
+  position: relative;
+  width: 500px;
+  text-align: center;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-modal-btn:hover {
+  color: red;
 }
 
 .modal-title {
@@ -170,15 +220,35 @@ body {
 .payment-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   min-width: 524px;
 }
 
 .payment-form input {
   padding: 16px 233px 13px 26px;
-  margin-bottom: 37px;
+  margin: 5px 20px 37px 20px;
 }
 
 .pay-btn {
+  margin: 0 20px;
   padding: 16px 223px 15px;
+}
+
+.error {
+  margin-bottom: 5px;
+  margin-left: 24px;
+  color: red;
+}
+
+.thank-you-container {
+  margin: 0 auto;
+  max-width: 504px;
+  text-align: center;
+  background-color: #ecfdf5;
+}
+
+.thank-you-message {
+  padding: 51px 0 51px;
+  color: #065f46;
+  font-size: 32px;
 }

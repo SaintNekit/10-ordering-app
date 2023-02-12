@@ -4,6 +4,16 @@ import { menuArray } from './data.js';
 const menuItems = document.getElementById('main-section');
 const orderSummary = document.getElementById('order-summary');
 const orderContainer = document.getElementById('order-container');
+const paymentModal = document.getElementById('payment-modal-window');
+const completeBtn = document.getElementById('complete-btn');
+const nameInput = document.getElementById('name-input');
+const cardInput = document.getElementById('card-input');
+const cvvInput = document.getElementById('cvv-input');
+const nameError = document.getElementById('name-error');
+const cardError = document.getElementById('card-error');
+const cvvError = document.getElementById('cvv-error');
+const thankYouContainer = document.getElementById('thank-you-container');
+const closeModal = document.getElementById('close-modal-btn');
 
 const renderMenu = () => {
   let itemHtml = '';
@@ -58,6 +68,7 @@ orderContainer.addEventListener('click', (e) => {
 let totalSum = 0;
 
 const addItem = (itemId) => {
+  thankYouContainer.innerHTML = '';
   let chosenItem = menuArray.filter((e) => {
     return e.id === itemId;
   })[0];
@@ -70,7 +81,7 @@ const addItem = (itemId) => {
         <h2 id="${chosenItem.name}-item" class="order-summary-item">${
     chosenItem.name
   } x${chosenItem.orderedQuantity}</h2>
-        <button data-${chosenItem.name}-remove="${
+        <button class="remove-btn" data-${chosenItem.name}-remove="${
     chosenItem.id
   }">remove</button>
       </div>
@@ -85,7 +96,7 @@ const addItem = (itemId) => {
   } else {
     document.getElementById(
       `${chosenItem.name}-item`
-    ).innerHTML = `${chosenItem.name} x ${chosenItem.orderedQuantity}`;
+    ).innerHTML = `${chosenItem.name} x${chosenItem.orderedQuantity}`;
     document.getElementById(`${chosenItem.name}-price`).innerHTML = `$${
       chosenItem.price * chosenItem.orderedQuantity
     }`;
@@ -121,6 +132,60 @@ const removeItem = (itemId) => {
   if (chosenItem.orderedQuantity < 1) {
     document.getElementById(
       `${chosenItem.name}-item`
-    ).parentElement.parentElement.style.display = 'none';
+    ).parentElement.parentElement.innerHTML = '';
   }
 };
+
+completeBtn.addEventListener('click', () => {
+  paymentModal.style.display = 'flex';
+});
+
+document.getElementById('pay-btn').addEventListener('click', (e) => {
+  resetErrors();
+
+  e.preventDefault();
+  if (!nameInput.value) {
+    nameError.textContent = 'Filed is empty';
+  }
+  if (!cardInput.value) {
+    cardError.textContent = 'Filed is empty';
+  } else if (cardInput.value.length !== 16) {
+    cardError.textContent = 'Incorrect value!';
+  }
+  if (!cvvInput.value) {
+    cvvError.textContent = 'Filed is empty';
+  } else if (cvvInput.value.length !== 3) {
+    cvvError.textContent = 'Incorrect value!';
+  }
+
+  if (
+    nameInput.value &&
+    cardInput.value.length === 16 &&
+    cvvInput.value.length === 3
+  ) {
+    paymentModal.style.display = 'none';
+    orderContainer.style.display = 'none';
+    orderSummary.innerHTML = '';
+    thankYouContainer.innerHTML = `<p class="thank-you-message">Thanks, ${nameInput.value}! Your order is on it's way</p>`;
+    menuArray.forEach((e) => {
+      e.orderedQuantity = 0;
+    });
+    nameInput.value = '';
+    cardInput.value = '';
+    cvvInput.value = '';
+    totalSum = 0;
+  }
+});
+
+const resetErrors = () => {
+  nameError.textContent = '';
+  cardError.textContent = '';
+  cvvError.textContent = '';
+};
+
+closeModal.addEventListener('click', () => {
+  paymentModal.style.display = 'none';
+  nameInput.value = '';
+  cardInput.value = '';
+  cvvInput.value = '';
+});

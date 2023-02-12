@@ -49,35 +49,47 @@
       </section>
 
       <section id="payment-modal-window" class="payment-modal-window">
-        <h2 class="modal-title">Enter card details</h2>
+        <div class="modal-header">
+          <h2 class="modal-title">Enter card details</h2>
+          <span id="close-modal-btn" class="close-modal-btn">X</span>
+        </div>
+
         <form class="payment-form">
+          <div id="name-error" class="name-error error"></div>
           <input
             id="name-input"
             type="text"
             placeholder="Enter your name"
             name="cardName"
             aria-label="Your name"
+            title="Just type anything"
             required
           />
+          <div id="card-error" class="card-error error"></div>
           <input
             id="card-input"
             type="number"
             placeholder="Enter card number"
             name="cardNumber"
             aria-label="Your card number"
+            title="Any 16 digits will do"
             required
           />
+          <div id="cvv-error" class="cvv-error error"></div>
           <input
             id="cvv-input"
             type="number"
             placeholder="Enter CVV"
             name="cardCvv"
             aria-label="Your cvv code"
+            title="Any 3 digits"
             required
           />
-          <button class="pay-btn btn">Pay</button>
+          <button id="pay-btn" class="pay-btn btn">Pay</button>
         </form>
       </section>
+
+      <section id="thank-you-container" class="thank-you-container"></section>
     </div>
     <script src="index.js" type="module"></script>
   </body>
