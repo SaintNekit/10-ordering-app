@@ -20,15 +20,64 @@
     <link rel="stylesheet" href="index.css" />
     <title>Kiant's Diner</title>
   </head>
+
   <body>
     <div class="container">
       <header class="header">
         <h1 class="header-title">Kiant's Diner</h1>
         <h3 class="header-description">Best burgers and pizzas in town.</h3>
       </header>
+
       <main id="main-section" class="main-section">
         <!-- MENU ITEMS RENDERS HERE -->
       </main>
+
+      <section id="order-container" class="order-container">
+        <h2 class="order-summary-title">Your order</h2>
+        <div id="order-summary" class="order-summary">
+          <!-- ORDER SUMMARY RENDERS HERE -->
+        </div>
+
+        <span class="line-break"></span>
+        <div class="order-summary-total">
+          <h2 class="order-summary-item total-price">Total price:</h2>
+          <p id="order-summary-price" class="order-summary-price"></p>
+        </div>
+        <button id="complete-btn" class="complete-btn btn">
+          Complete order
+        </button>
+      </section>
+
+      <section id="payment-modal-window" class="payment-modal-window">
+        <h2 class="modal-title">Enter card details</h2>
+        <form class="payment-form">
+          <input
+            id="name-input"
+            type="text"
+            placeholder="Enter your name"
+            name="cardName"
+            aria-label="Your name"
+            required
+          />
+          <input
+            id="card-input"
+            type="number"
+            placeholder="Enter card number"
+            name="cardNumber"
+            aria-label="Your card number"
+            required
+          />
+          <input
+            id="cvv-input"
+            type="number"
+            placeholder="Enter CVV"
+            name="cardCvv"
+            aria-label="Your cvv code"
+            required
+          />
+          <button class="pay-btn btn">Pay</button>
+        </form>
+      </section>
     </div>
     <script src="index.js" type="module"></script>
   </body>

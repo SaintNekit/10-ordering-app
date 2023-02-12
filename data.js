@@ -6,6 +6,7 @@ export const menuArray = [
     price: 14,
     emoji: '🍕',
     image: './img/pizza-icon.png',
+    orderedQuantity: 0,
   },
   {
     name: 'Hamburger',
@@ -14,6 +15,7 @@ export const menuArray = [
     price: 12,
     emoji: '🍔',
     image: './img/burger-icon.png',
+    orderedQuantity: 0,
   },
   {
     name: 'Beer',
@@ -22,5 +24,6 @@ export const menuArray = [
     price: 12,
     emoji: '🍺',
     image: './img/beer-icon.png',
+    orderedQuantity: 0,
   },
 ];
